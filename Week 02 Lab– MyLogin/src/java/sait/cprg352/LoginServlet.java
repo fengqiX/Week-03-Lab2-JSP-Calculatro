@@ -27,7 +27,32 @@ public class LoginServlet extends HttpServlet {
      @Override
      protected void doPost(HttpServletRequest request, HttpServletResponse response)
              throws ServletException, IOException {
-         // TODO
+         
+         String username = request.getParameter("Uname");
+         String password = request.getParameter("Pword");
+         
+         request.setAttribute("username", username);
+         request.setAttribute("password", password);
+         //getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+         
+         if( username==null || password == null || username.trim().isEmpty() ||password.trim().isEmpty())
+         {
+             request.setAttribute("display","Both values are required!");
+             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+             return;
+         }
+         UserService us = new UserService();
+         if( us.login(username, password) == false)
+         {
+             request.setAttribute("display","Invalid username or password!");
+             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);  
+         }
+         else
+         {
+             request.setAttribute("username", username);
+             getServletContext().getRequestDispatcher("/WEB-INF/mainPage.jsp").forward(request, response);
+
+         }
      }
 
    

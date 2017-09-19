@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Main Page</h1>
-        <p>Hello,${username} <a href="#" ></p>
+        <p>Hello,${username} <a href="<%=request.getContextPath()%>/MainPageServlet" >Logout</a></p>
     </body>
 </html>

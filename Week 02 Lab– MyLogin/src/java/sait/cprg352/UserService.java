@@ -13,6 +13,7 @@ public class UserService {
     
     public boolean login(String name,String password)
     {
-        return true;
+        if((name.trim().equals("adam")) || (name.trim().equals("betty") ) && password.equals("password") ) return true;
+        return false;
     }
 }
