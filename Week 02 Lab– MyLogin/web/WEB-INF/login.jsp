@@ -9,14 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MyLogin</title>
+        <title>My Login</title>
     </head>
     <body>
         <h1>Login</h1>
-        <form action="" method="post">
-            <p>Username:<input type="text" name="Uname"></p>
-            <p>Password:<input type="text" name="Pword"></p>
+        <form action="index" method="post">
+            <p>Username:<input type="text" name="Uname" value="${username}"></p>
+            <p>Password:<input type="text" name="Pword" value="${password}"></p>
             <input type="submit" value="Login">
         </form>
+            ${display}
     </body>
 </html>
